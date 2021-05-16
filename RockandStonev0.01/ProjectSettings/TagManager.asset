@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Temp
   - Building
+  - Dwarf
+  - WorkLedger
   layers:
   - Default
   - TransparentFX

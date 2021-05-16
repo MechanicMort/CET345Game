@@ -22,34 +22,31 @@ public class Placement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
+       
         RaycastHit hit;
 
         Ray ray = playerCam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit, LayerMask.GetMask("Floo")))
+        if (Physics.Raycast(ray, out hit))
         {
-            print("aaa");
+            temp.transform.position = hit.point;
             Transform objectHit = hit.transform;
-            if (objectHit.tag == "Temp")
+            if (objectHit.tag == "Temp" || objectHit.tag =="Building" )
             {
-                print("no");
+                //
             }
             else
             {
-                temp.transform.position = hit.point;
-            }
-            if (Input.GetKeyDown(KeyCode.Mouse0) && objectHit.tag != "Temp")
-            {
-                Instantiate(Place,hit.point,hit.transform.rotation,transform.parent = null);
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    Instantiate(Place, hit.point, hit.transform.rotation, transform.parent = null);
+                }
 
             }
-
-
+        }
+           
             // Do something with the object that was hit by the raycast.
         }
-
-
     }
-}
+

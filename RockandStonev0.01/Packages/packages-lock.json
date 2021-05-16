@@ -141,6 +141,12 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.wug.behaviortreevisualizer": {
+      "version": "file:C:/Users/skuld/Downloads/UnityBehaviorTreeVisualizer-main (1)/UnityBehaviorTreeVisualizer-main/com.wug.behaviortreevisualizer",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

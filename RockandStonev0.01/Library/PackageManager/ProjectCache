@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637484840641558143
-    m_Hash: 990554761
+      ticks: 637565042320805081
+    m_Hash: 1436233089
   m_LockFileStatus:
     m_FilePath: D:/CET345/CET345Game/RockandStonev0.01/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637484840980362260
-    m_Hash: 3595124353
+      ticks: 637565042332781568
+    m_Hash: 4176947460
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -76,7 +76,13 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
+        - 2.7.2
+        - 2.7.3
+        - 2.8.0-exp.1
+        - 2.8.0-exp.2
+        - 2.8.0-pre.1
         compatible:
         - 2.5.0
         - 2.6.0-preview.2
@@ -90,8 +96,14 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
-        verified: 2.6.3
+        - 2.7.2
+        - 2.7.3
+        - 2.8.0-exp.1
+        - 2.8.0-exp.2
+        - 2.8.0-pre.1
+        verified: 2.6.4
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -176,6 +188,7 @@ m_PackageAssets:
         - 1.3.7
         - 1.3.8
         - 1.3.9
+        - 1.5.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -188,6 +201,7 @@ m_PackageAssets:
         - 2.1.0-preview.6
         compatible:
         - 1.3.9
+        - 1.5.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -275,6 +289,9 @@ m_PackageAssets:
         - 3.0.1
         - 3.0.2
         - 3.0.3
+        - 3.0.4
+        - 3.0.5
+        - 3.0.6
         compatible:
         - 1.0.2
         - 1.0.6
@@ -297,6 +314,9 @@ m_PackageAssets:
         - 3.0.1
         - 3.0.2
         - 3.0.3
+        - 3.0.4
+        - 3.0.5
+        - 3.0.6
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -364,6 +384,8 @@ m_PackageAssets:
         - 2.0.2
         - 2.0.3
         - 2.0.5
+        - 2.0.7
+        - 2.0.8
         compatible:
         - 1.0.2
         - 1.0.3
@@ -376,7 +398,9 @@ m_PackageAssets:
         - 2.0.2
         - 2.0.3
         - 2.0.5
-        verified: 2.0.5
+        - 2.0.7
+        - 2.0.8
+        verified: 2.0.8
       dependencies: []
       resolvedDependencies: []
       keywords: []
@@ -563,6 +587,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -577,6 +602,9 @@ m_PackageAssets:
         - 10.2.1
         - 10.2.2
         - 10.3.1
+        - 10.3.2
+        - 10.4.0
+        - 10.5.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -679,10 +707,12 @@ m_PackageAssets:
         - 1.1.19
         - 1.1.20
         - 1.1.22
+        - 1.1.24
         compatible:
         - 1.1.20
         - 1.1.22
-        verified: 1.1.22
+        - 1.1.24
+        verified: 1.1.24
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6
@@ -795,6 +825,9 @@ m_PackageAssets:
         - 1.5.0
         - 1.5.1
         - 1.5.3
+        - 1.5.4
+        - 1.5.5
+        - 1.5.6
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.1
@@ -813,6 +846,9 @@ m_PackageAssets:
         - 2.1.0
         - 2.1.1
         - 2.1.3
+        - 2.1.4
+        - 2.1.5
+        - 2.1.6
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -827,10 +863,16 @@ m_PackageAssets:
         - 3.0.0
         - 3.0.1
         - 3.0.3
+        - 3.0.4
+        - 3.0.5
+        - 3.0.6
         compatible:
         - 3.0.1
         - 3.0.3
-        verified: 3.0.3
+        - 3.0.4
+        - 3.0.5
+        - 3.0.6
+        verified: 3.0.6
       dependencies:
       - name: com.unity.ugui
         version: 1.0.0
@@ -932,6 +974,8 @@ m_PackageAssets:
         - 1.4.4
         - 1.4.5
         - 1.4.6
+        - 1.4.7
+        - 1.4.8
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -942,7 +986,12 @@ m_PackageAssets:
         - 1.5.1-pre.2
         - 1.5.1-pre.3
         - 1.5.2
+        - 1.5.4
+        - 1.5.5
         - 1.6.0-pre.1
+        - 1.6.0-pre.3
+        - 1.6.0-pre.4
+        - 1.6.0-pre.5
         compatible:
         - 1.2.6
         - 1.2.7
@@ -982,6 +1031,8 @@ m_PackageAssets:
         - 1.4.4
         - 1.4.5
         - 1.4.6
+        - 1.4.7
+        - 1.4.8
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -992,8 +1043,13 @@ m_PackageAssets:
         - 1.5.1-pre.2
         - 1.5.1-pre.3
         - 1.5.2
+        - 1.5.4
+        - 1.5.5
         - 1.6.0-pre.1
-        verified: 1.4.6
+        - 1.6.0-pre.3
+        - 1.6.0-pre.4
+        - 1.6.0-pre.5
+        verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
         version: 1.0.0
@@ -1095,6 +1151,95 @@ m_PackageAssets:
       isAssetStorePackage: 0
       datePublishedTicks: 0
       documentationUrl: 
+      hasRepository: 0
+      repository:
+        type: 
+        url: 
+        revision: 
+        path: 
+    - packageId: com.wug.behaviortreevisualizer@file:C:\Users\skuld\Downloads\UnityBehaviorTreeVisualizer-main
+        (1)\UnityBehaviorTreeVisualizer-main\com.wug.behaviortreevisualizer
+      testable: 0
+      isDirectDependency: 1
+      version: 0.1.4
+      source: 4
+      resolvedPath: C:\Users\skuld\Downloads\UnityBehaviorTreeVisualizer-main (1)\UnityBehaviorTreeVisualizer-main\com.wug.behaviortreevisualizer
+      assetPath: Packages/com.wug.behaviortreevisualizer
+      name: com.wug.behaviortreevisualizer
+      displayName: Behavior Tree Visualizer (Beta)
+      author:
+        name: What Up Games, LLC
+        email: support@whatupgames.com
+        url: https://github.com/Yecats/UnityBehaviorTreeVisualizer
+      category: 
+      type: tool
+      description: 'Note: The "NPC Behavior Tree" sample requires the "Standard Nodes"
+        sample to be installed.
+
+
+        Behavior Trees are a fantastic way to write
+        modular AI that can scale in complexity. Unfortunately, it can be quite hard
+        to visualize how your tree is being executed which makes it difficult to
+        debug potential failure points. The Behavior Tree Visualizer tool was created
+        to solve these problems! The tool will scan for active behavior trees in
+        your scene and group them in a drop down for easy toggle. A graph will be
+        drawn, and nodes will light up, showing you which part of the tree is currently
+        running.
+
+
+        Features
+
+
+        1. Customize the graph by choosing
+        the title bar color, the icon, amount to dim inactive nodes and more.
+
+        2.
+        Robust debug messages can be viewed directly on the graph. Surface anything
+        you want to see.
+
+        3. Standard nodes to help you get up and running
+        quickly. No need to write a sequencer, selector, inverter, or more!
+
+
+        What''s
+        Included?
+
+        
+
+        1. Behavior Tree Visualizer tool built with
+        Unity Toolkit (formerly UI Elements)
+
+        2. Standard Behavior Tree
+        nodes to get you up and running quickly
+
+        3. Sample project to demonstrate
+        the implementation'
+      status: 4
+      errors: []
+      versions:
+        all: []
+        compatible: []
+        verified: 
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - behavior tree
+      - behavior tree visualizer
+      - what up games
+      registry:
+        id: 
+        name: 
+        url: 
+        scopes: []
+        isDefault: 0
+        capabilities: 0
+      hasRegistry: 0
+      hideInEditor: 0
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 0
+      documentationUrl: https://github.com/Yecats/UnityBehaviorTreeVisualizer/wiki
       hasRepository: 0
       repository:
         type: 
@@ -2998,6 +3143,8 @@ m_PackageAssets:
         - 7.4.3
         - 7.5.1
         - 7.5.2
+        - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3012,6 +3159,10 @@ m_PackageAssets:
         - 10.2.0
         - 10.2.1
         - 10.2.2
+        - 10.3.1
+        - 10.3.2
+        - 10.4.0
+        - 10.5.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -3139,6 +3290,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3153,6 +3305,9 @@ m_PackageAssets:
         - 10.2.1
         - 10.2.2
         - 10.3.1
+        - 10.3.2
+        - 10.4.0
+        - 10.5.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -3256,6 +3411,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3270,6 +3426,9 @@ m_PackageAssets:
         - 10.2.1
         - 10.2.2
         - 10.3.1
+        - 10.3.2
+        - 10.4.0
+        - 10.5.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -3335,7 +3494,41 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 7.0.0
+        - 7.0.1
+        - 7.1.1
+        - 7.1.2
+        - 7.1.5
+        - 7.1.6
+        - 7.1.7
+        - 7.1.8
+        - 7.2.0
+        - 7.2.1
+        - 7.3.1
+        - 7.4.1
+        - 7.4.2
+        - 7.4.3
+        - 7.5.1
+        - 7.5.2
+        - 7.5.3
+        - 7.6.0
+        - 8.0.1
+        - 8.1.0
+        - 8.2.0
+        - 8.3.1
+        - 9.0.0-preview.15
+        - 9.0.0-preview.35
+        - 9.0.0-preview.57
+        - 9.0.0-preview.74
+        - 10.0.0-preview.27
+        - 10.1.0
+        - 10.2.0
+        - 10.2.1
         - 10.2.2
+        - 10.3.1
+        - 10.3.2
+        - 10.4.0
+        - 10.5.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -3364,12 +3557,12 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637430487320000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
-        url: https://github.com/Unity-Technologies/Graphics.git
+        url: git+https://github.com/Unity-Technologies/Graphics.git
         revision: a197e35ba4e93349ccbb4fddd4f3f80ba7b1c113
         path: 
     - packageId: com.unity.searcher@4.3.1
@@ -3404,6 +3597,7 @@ m_PackageAssets:
         - 4.2.0
         - 4.3.0
         - 4.3.1
+        - 4.3.2
         - 4.6.0-preview
         - 4.7.0-preview
         compatible:
@@ -3418,9 +3612,10 @@ m_PackageAssets:
         - 4.2.0
         - 4.3.0
         - 4.3.1
+        - 4.3.2
         - 4.6.0-preview
         - 4.7.0-preview
-        verified: 4.3.1
+        verified: 4.3.2
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -3447,6 +3642,20 @@ m_PackageAssets:
         revision: 56c3321cb776740e60e242e6c72cb5b4e8245256
         path: 
   m_LocalPackages:
-    m_LocalFileStatus: []
+    m_LocalFileStatus:
+    - m_FilePath: C:\Users\skuld\Downloads\UnityBehaviorTreeVisualizer-main (1)\UnityBehaviorTreeVisualizer-main\com.wug.behaviortreevisualizer/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 637542796770000000
+      m_Hash: 1582629329
+    - m_FilePath: C:\Users\skuld\Downloads\UnityBehaviorTreeVisualizer-main (1)\UnityBehaviorTreeVisualizer-main\com.wug.behaviortreevisualizer
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 0
+      m_Hash: 0
 m_ProjectPath: D:/CET345/CET345Game/RockandStonev0.01/Packages
 m_EditorVersion: 2020.2.2f1 (068178b99f32)
