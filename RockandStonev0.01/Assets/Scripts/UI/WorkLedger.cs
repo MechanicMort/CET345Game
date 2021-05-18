@@ -12,6 +12,9 @@ public class WorkLedger : MonoBehaviour
 
     public Dictionary<string, int> jobDictionary = new Dictionary<string, int>();
 
+    //update ledger every time it is opnened
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,15 @@ public class WorkLedger : MonoBehaviour
         jobDictionary.Add("Farmer", 2);
         subjectsDwarves = GameObject.FindGameObjectsWithTag("Dwarf");
 
+        UpdateLedger();
+
+
+        
+    }
+
+
+    private void OnEnable()
+    {
         UpdateLedger();
     }
 
@@ -47,12 +59,10 @@ public class WorkLedger : MonoBehaviour
             dwarfLedgerTemp.transform.SetParent(ledgerView.transform, true);
             dwarfLedgerTemp.transform.GetChild(0).GetComponent<LedgerUpdate>().myDwarf = subjectsDwarves[i];
 
-            print(subjectsDwarves[i].GetComponent<Dwarf>().subjectJob);
-
-            dwarfLedgerTemp.transform.GetChild(0).GetComponent<Dropdown>().SetValueWithoutNotify ( jobDictionary[subjectsDwarves[i].GetComponent<Dwarf>().subjectJob]);
+            dwarfLedgerTemp.transform.GetChild(0).GetComponent<Dropdown>().SetValueWithoutNotify(jobDictionary[subjectsDwarves[i].GetComponent<Dwarf>().subjectJob]);
 
             dwarfLedgerTemp.transform.GetChild(1).GetComponent<Text>().text = subjectsDwarves[i].GetComponent<Dwarf>().subjectName;
-            dwarfLedgerTemp.transform.GetChild(2).GetComponent<Text>().text = subjectsDwarves[i].GetComponent<Dwarf>().subjectStatus;
+            dwarfLedgerTemp.transform.GetChild(2).GetComponent<Text>().text = "Status:" + subjectsDwarves[i].GetComponent<Dwarf>().subjectStatus;
 
 
         }
