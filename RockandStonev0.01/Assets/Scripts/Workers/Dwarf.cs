@@ -10,7 +10,16 @@ public class Dwarf : MonoBehaviour
     public string subjectStatus;
     public string subjectJob;
 
+    public int invSize;
+
     public GameObject workLedger;
+    public GameObject[] inventory;
+
+
+    private void Start()
+    {
+        inventory = new GameObject[invSize];
+    }
 
 
     public void Update()

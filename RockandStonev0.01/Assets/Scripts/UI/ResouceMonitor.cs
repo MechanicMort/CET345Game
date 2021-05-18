@@ -16,6 +16,8 @@ public class ResouceMonitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stoneDisplay.text = "Stone" +  gameManager.Resources[0].ToString();
+        stoneDisplay.text = "Stone: " +  gameManager.totalStone;
+        stoneDisplay.text += "  Wood: " +  gameManager.totalWood;
+        stoneDisplay.text += "  Clay: " +  gameManager.totalClay;
     }
 }

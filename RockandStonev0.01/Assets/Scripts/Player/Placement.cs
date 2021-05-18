@@ -10,13 +10,10 @@ public class Placement : MonoBehaviour
     public GameObject Place;
     GameObject temp;
     public Camera playerCam;
-    private int lM;
     // Start is called before the first frame update
     void Start()
     {
-        lM = 1 << 6;
-        temp = Instantiate(PlacementTemp);
-      
+        temp = Instantiate(PlacementTemp); 
     }
 
     // Update is called once per frame

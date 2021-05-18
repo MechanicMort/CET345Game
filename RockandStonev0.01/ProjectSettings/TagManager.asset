@@ -8,6 +8,8 @@ TagManager:
   - Building
   - Dwarf
   - WorkLedger
+  - StorageBuilding
+  - ResourceChunk
   layers:
   - Default
   - TransparentFX
