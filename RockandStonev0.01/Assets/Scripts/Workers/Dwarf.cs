@@ -19,6 +19,9 @@ public class Dwarf : MonoBehaviour
 
     public int invSize;
 
+    public bool isFoodInInv;
+    public int foodPos;
+
     public GameObject workLedger;
     public GameObject storageLocation;
     public GameObject[] inventory;
@@ -32,6 +35,18 @@ public class Dwarf : MonoBehaviour
         StartCoroutine(reduceHealth());
     }
 
+
+    public void Eat()
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            
+        }
+        if (Hunger <= 50 && isFoodInInv)
+        {
+
+        }
+    }
 
     private IEnumerator Hungry()
     {
@@ -55,9 +70,13 @@ public class Dwarf : MonoBehaviour
     private IEnumerator reduceHealth()
     {
         yield return new WaitForSeconds(0.5f);
-        if (Hunger <= 3)
+        if (Hunger <= 15)
         {
             Health -= 0.5f;
+        }
+        else
+        {
+            Health += 0.05f;
         }
 
         if (Health <= 30 && !subjectStatus.Contains(" Starving "))
@@ -92,7 +111,10 @@ public class Dwarf : MonoBehaviour
 
     public void Die()
     {
-
+        if (Health <= 0)
+        {
+            //die and drop inv
+        }
     }
     public void Update()
     {
