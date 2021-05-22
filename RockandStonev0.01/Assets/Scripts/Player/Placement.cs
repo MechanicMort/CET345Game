@@ -8,6 +8,10 @@ public class Placement : MonoBehaviour
 
     public GameObject PlacementTemp;
     public GameObject Place;
+
+
+
+
     GameObject temp;
     public Camera playerCam;
     // Start is called before the first frame update

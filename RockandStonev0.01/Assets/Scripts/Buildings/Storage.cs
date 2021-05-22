@@ -24,7 +24,7 @@ public class Storage : MonoBehaviour
         //add method to store
         if (collision.transform.tag == "ResourceChunk")
         {
-            if (currentStored + collision.gameObject.GetComponent<ResourceChunk>().totalWorh <= maxStorage)
+            if (currentStored + collision.gameObject.GetComponent<ResourceChunk>().totalWorth <= maxStorage)
             {
                 stoneStored += collision.gameObject.GetComponent<ResourceChunk>().stoneWorth;
                 woodStored += collision.gameObject.GetComponent<ResourceChunk>().woodWorth;

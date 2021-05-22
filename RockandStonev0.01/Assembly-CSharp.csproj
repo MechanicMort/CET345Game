@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Buildings\Storage.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\UI\ResouceMonitor.cs" />
+    <Compile Include="Assets\Scripts\Resources\ResourceChunk.cs" />
     <Compile Include="Assets\Scripts\Player\Placement.cs" />
     <Compile Include="Assets\Scripts\Behavoirs\Conditions\IsNavigationActivityTypeOf.cs" />
     <Compile Include="Assets\Scripts\UI\LedgerUpdate.cs" />
@@ -76,7 +77,7 @@
     <Compile Include="Assets\Scripts\Buildings\WorkShop.cs" />
     <Compile Include="Assets\Scripts\Behavoirs\Decorator.cs" />
     <Compile Include="Assets\Scripts\Behavoirs\Condition.cs" />
-    <Compile Include="Assets\Scripts\Resources\ResourceChunk.cs" />
+    <Compile Include="Assets\Scripts\Buildings\BuildingScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

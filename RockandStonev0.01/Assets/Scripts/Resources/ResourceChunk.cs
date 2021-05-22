@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ResourceChunk : MonoBehaviour
 {
-    public float totalWorh;
+    public float totalWorth;
     public float stoneWorth;
     public float woodWorth;
     public float clayWorth;
+
 }

@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 
     private float researchTier;
     public Recipe[] recipes;
+
+    public ArrayList deliveryList = new ArrayList();
+
     public float totalStone;
     public float totalWood;
     public float totalClay;
@@ -15,6 +18,9 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+
+
 
     // Update is called once per frame
     void Update()
