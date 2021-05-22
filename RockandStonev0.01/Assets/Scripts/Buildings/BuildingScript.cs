@@ -63,23 +63,23 @@ public class BuildingScript : MonoBehaviour
             //wood Delivery
             if (collision.gameObject.GetComponent<ResourceChunk>().woodWorth > woodNeeded)
             {
-                stoneNeeded = 0;
+                woodNeeded = 0;
                 collision.gameObject.GetComponent<ResourceChunk>().woodWorth -= woodNeeded;
             }
             else
             {
-                stoneNeeded -= collision.gameObject.GetComponent<ResourceChunk>().woodWorth;
+                woodNeeded -= collision.gameObject.GetComponent<ResourceChunk>().woodWorth;
                 collision.gameObject.GetComponent<ResourceChunk>().woodWorth -= woodNeeded;
             }
             //clay delivery
             if (collision.gameObject.GetComponent<ResourceChunk>().clayWorth > clayNeeded)
             {
-                stoneNeeded = 0;
+                clayNeeded = 0;
                 collision.gameObject.GetComponent<ResourceChunk>().clayWorth -= clayNeeded;
             }
             else
             {
-                stoneNeeded -= collision.gameObject.GetComponent<ResourceChunk>().clayWorth;
+                clayNeeded -= collision.gameObject.GetComponent<ResourceChunk>().clayWorth;
                 collision.gameObject.GetComponent<ResourceChunk>().clayWorth -= clayNeeded;
             }
         }
