@@ -33,8 +33,6 @@ public class Storage : MonoBehaviour
 
                 Destroy(collision.gameObject);
             }
-
-            print("Hello");
         }
     }
 
