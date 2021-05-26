@@ -17,9 +17,13 @@ public class Dwarf : MonoBehaviour
     public string subjectStatus;
     public string subjectJob;
 
+    public bool hasJob;
+
     public int invSize;
 
     public bool isFoodInInv;
+
+
     public int foodPos;
 
     public Vector3 workPlace;

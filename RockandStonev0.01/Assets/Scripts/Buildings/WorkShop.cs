@@ -7,6 +7,9 @@ public class WorkShop : MonoBehaviour
 {
 
     public GameObject workShopCanvas;
+    public GameObject dwarf1;
+    public GameObject dwarf2;
+    public GameObject dwarf3;
 
 
 
