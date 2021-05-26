@@ -5,6 +5,8 @@ using UnityEngine;
 public class Recipe : MonoBehaviour
 {
 
+    public string recipeName;
+
     public float workNeeded;
     public string resource1;
     public float resource1Ammount;

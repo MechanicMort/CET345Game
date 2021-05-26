@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float totalStone;
     public float totalWood;
     public float totalClay;
+    public float totalSlabs;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
 
 
 
+
+    public Recipe[] getRecipes()
+    {
+        return recipes;
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,6 +46,10 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
         {
             totalClay += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().clayStored;
+        }
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
+        {
+            totalSlabs += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().slabsStored;
         }
 
     }

@@ -14,6 +14,10 @@ public class WorkShopUI : MonoBehaviour
     public Dropdown recipeSlection;
 
     public GameObject workShopSelected;
+    public GameManager gameManager;
+
+    public Recipe[] recipesKnown;
+    public List<string> recipeNames = new List<string>();
 
     public List<GameObject> dwarves;
     public List<string> dwarvesNames;
@@ -21,6 +25,14 @@ public class WorkShopUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
+        recipesKnown = gameManager.getRecipes();
+
+        for (int i = 0; i < recipesKnown.Length; i++)
+        {
+            recipeNames.Add(recipesKnown[i].recipeName);
+        }
 
         dwarf1Selection.ClearOptions();
         dwarf2Selection.ClearOptions();

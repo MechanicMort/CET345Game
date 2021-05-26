@@ -11,6 +11,8 @@ public class BuildingScript : MonoBehaviour
 
     public float stoneNeeded;
 
+    public float slabsNeeded;
+
     public float woodNeeded;
 
     public float clayNeeded;
@@ -22,7 +24,7 @@ public class BuildingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        totalAmount = clayNeeded + stoneNeeded + woodNeeded;
+        totalAmount = clayNeeded + stoneNeeded + woodNeeded + slabsNeeded;
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
 
@@ -77,6 +79,18 @@ public class BuildingScript : MonoBehaviour
             {
                 clayNeeded -= collision.gameObject.GetComponent<ResourceChunk>().clayWorth;
                 collision.gameObject.GetComponent<ResourceChunk>().clayWorth -= clayNeeded;
+            }
+
+            //slab Delivery
+            if (collision.gameObject.GetComponent<ResourceChunk>().slabWorth > slabsNeeded)
+            {
+                slabsNeeded = 0;
+                collision.gameObject.GetComponent<ResourceChunk>().slabWorth -= slabsNeeded;
+            }
+            else
+            {
+                slabsNeeded -= collision.gameObject.GetComponent<ResourceChunk>().slabWorth;
+                collision.gameObject.GetComponent<ResourceChunk>().slabWorth -= slabsNeeded;
             }
         }
     }

@@ -12,6 +12,7 @@ TagManager:
   - ResourceChunk
   - BuildingSite
   - WorkShop
+  - Recipe
   layers:
   - Default
   - TransparentFX
