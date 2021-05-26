@@ -22,6 +22,8 @@ public class Dwarf : MonoBehaviour
     public bool isFoodInInv;
     public int foodPos;
 
+    public Vector3 workPlace;
+
     public GameObject workLedger;
     public GameObject storageLocation;
     public GameObject[] inventory;
@@ -29,7 +31,7 @@ public class Dwarf : MonoBehaviour
 
     private void Start()
     {
-
+        this.gameObject.name = subjectName;
         inventory = new GameObject[invSize];
         StartCoroutine(Hungry());
         StartCoroutine(reduceHealth());

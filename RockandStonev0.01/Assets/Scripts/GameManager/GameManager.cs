@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         totalWood = 0;
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
         {
+         
             totalStone += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().stoneStored;
         }
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)

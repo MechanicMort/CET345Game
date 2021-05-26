@@ -25,10 +25,6 @@ public class BuildingScript : MonoBehaviour
         totalAmount = clayNeeded + stoneNeeded + woodNeeded;
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
-        gameManager.deliveryList.Add(transform.position);
-        gameManager.deliveryList.Add(stoneNeeded);
-        gameManager.deliveryList.Add(woodNeeded);
-        gameManager.deliveryList.Add(clayNeeded);
 
 
     }
