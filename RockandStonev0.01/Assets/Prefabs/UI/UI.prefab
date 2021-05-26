@@ -3858,7 +3858,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649991058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3868,13 +3868,13 @@ RectTransform:
   - {fileID: 1073137722}
   - {fileID: 1806787067}
   - {fileID: 479097002}
-  m_Father: {fileID: 4796752801411390669}
-  m_RootOrder: 3
+  m_Father: {fileID: 7615396206435824726}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.12982295, y: 0.29957408}
   m_AnchorMax: {x: 0.86269796, y: 0.814}
-  m_AnchoredPosition: {x: -2.6000977, y: -2.0621338}
-  m_SizeDelta: {x: -4.2959003, y: 5.1678925}
+  m_AnchoredPosition: {x: -16.585938, y: 114.91919}
+  m_SizeDelta: {x: 2736.6567, y: 1064.8851}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1649991061
 CanvasRenderer:
@@ -3930,7 +3930,7 @@ MonoBehaviour:
   dwarf1Selection: {fileID: 1073137723}
   dwarf2Selection: {fileID: 1806787068}
   dwarf3Selection: {fileID: 479097003}
-  recipeSlection: {fileID: 0}
+  recipeSelection: {fileID: 0}
   workShopSelected: {fileID: 0}
   gameManager: {fileID: 0}
   recipesKnown: []
@@ -5139,7 +5139,7 @@ RectTransform:
   - {fileID: 4796752801415826201}
   - {fileID: 1964305110}
   - {fileID: 286883276}
-  - {fileID: 1649991059}
+  - {fileID: 7615396206435824726}
   m_Father: {fileID: 4796752801745242693}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5799,3 +5799,39 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &6719155737387517526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7615396206435824726}
+  m_Layer: 5
+  m_Name: WorkShopUIHolder
+  m_TagString: WorkShopCanvas
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7615396206435824726
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6719155737387517526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1649991059}
+  m_Father: {fileID: 4796752801411390669}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

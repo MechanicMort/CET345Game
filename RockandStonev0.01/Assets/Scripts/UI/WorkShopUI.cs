@@ -22,15 +22,18 @@ public class WorkShopUI : MonoBehaviour
     public List<GameObject> dwarves;
     public List<string> dwarvesNames;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
+    
         recipesKnown = gameManager.getRecipes();
 
+
+        recipeNames.Clear();
         for (int i = 0; i < recipesKnown.Length; i++)
         {
+
             recipeNames.Add(recipesKnown[i].recipeName);
         }
 
@@ -79,6 +82,20 @@ public class WorkShopUI : MonoBehaviour
             none.Clear();
         }
 
+        //recipes
+        if (workShopSelected.GetComponent<WorkShop>().workrecipe != null)
+        {
+            none.Add(workShopSelected.GetComponent<WorkShop>().workrecipe.GetComponent<Recipe>().recipeName);
+            recipeSelection.AddOptions(none);
+            none.Clear();
+        }
+        else
+        {
+            none.Add("None");
+            recipeSelection.AddOptions(none);
+            none.Clear();
+        }
+
         /*
          * redo once other stuff is done
         for (int i = 0; i < dwarves.Count; i++)
@@ -102,14 +119,23 @@ public class WorkShopUI : MonoBehaviour
         dwarf2Selection.AddOptions(dwarvesNames);
         dwarf3Selection.AddOptions(dwarvesNames);
 
+        recipeSelection.ClearOptions();
 
+        none.Add("None");
+        recipeSelection.AddOptions(none);
+        none.Clear();
         recipeSelection.AddOptions(recipeNames);
-
     }
+
+   
+
+
 
     // Update is called once per frame
     void Update()
     {
+        progressBar.fillAmount = workShopSelected.GetComponent<WorkShop>().workDone/100;
+        //dwarves
         if (GameObject.Find(dwarf1Selection.GetComponentInChildren<Text>().text) != null)
         {
             if (GameObject.Find(dwarf1Selection.GetComponentInChildren<Text>().text).GetComponent<Dwarf>().hasJob == false)
@@ -134,11 +160,13 @@ public class WorkShopUI : MonoBehaviour
                 workShopSelected.GetComponent<WorkShop>().dwarf3 = GameObject.Find(dwarf3Selection.GetComponentInChildren<Text>().text);
             }
         }
-
+        //set recipe
         if (gameManager.getThisRecipe(recipeSelection.GetComponentInChildren<Text>().text))
         {
             workShopSelected.GetComponent<WorkShop>().workrecipe = gameManager.getThisRecipe(recipeSelection.GetComponentInChildren<Text>().text);
         }
+
+      
 
     }
 }
