@@ -11,7 +11,7 @@ public class WorkShopUI : MonoBehaviour
     public Dropdown dwarf1Selection;
     public Dropdown dwarf2Selection;
     public Dropdown dwarf3Selection;
-    public Dropdown recipeSlection;
+    public Dropdown recipeSelection;
 
     public GameObject workShopSelected;
     public GameManager gameManager;
@@ -80,7 +80,7 @@ public class WorkShopUI : MonoBehaviour
         }
 
         /*
-         * readdonce other stuff is done
+         * redo once other stuff is done
         for (int i = 0; i < dwarves.Count; i++)
         {
             if (dwarves[i].GetComponent<Dwarf>().subjectJob == "BlackSmith")
@@ -102,6 +102,8 @@ public class WorkShopUI : MonoBehaviour
         dwarf2Selection.AddOptions(dwarvesNames);
         dwarf3Selection.AddOptions(dwarvesNames);
 
+
+        recipeSelection.AddOptions(recipeNames);
 
     }
 
@@ -133,6 +135,10 @@ public class WorkShopUI : MonoBehaviour
             }
         }
 
+        if (gameManager.getThisRecipe(recipeSelection.GetComponentInChildren<Text>().text))
+        {
+            workShopSelected.GetComponent<WorkShop>().workrecipe = gameManager.getThisRecipe(recipeSelection.GetComponentInChildren<Text>().text);
+        }
 
     }
 }

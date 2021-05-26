@@ -12,6 +12,8 @@ public class Dwarf : MonoBehaviour
     public float Hunger;
     public float maxHappiness;
     public float Happiness;
+    public float productivity;
+    public float productivityMax;
 
     public string subjectName;
     public string subjectStatus;
@@ -113,6 +115,12 @@ public class Dwarf : MonoBehaviour
         {
             inventory[i] = tempInve[i];
         }
+    }
+
+    public float Work()
+    {
+        productivity = productivityMax * Happiness/100;
+        return productivity;
     }
 
     public void Die()

@@ -28,6 +28,22 @@ public class GameManager : MonoBehaviour
         return recipes;
     }
 
+    public Recipe getThisRecipe(string recipeName)
+    {
+        for (int i = 0; i < recipes.Length; i++)
+        {
+            if (recipes[i].recipeName == recipeName)
+            {
+                return recipes[i];
+            }
+        }
+
+        return null;
+
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
