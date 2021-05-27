@@ -38,6 +38,9 @@ public class Dwarf : MonoBehaviour
 
     private void Start()
     {
+
+
+
         this.gameObject.name = subjectName;
         inventory = new GameObject[invSize];
         StartCoroutine(Hungry());
@@ -120,7 +123,7 @@ public class Dwarf : MonoBehaviour
 
     public float Work()
     {
-        productivity = productivityMax * Happiness/100;
+        productivity = productivityMax * (Happiness/100);
         return productivity;
     }
 

@@ -7,22 +7,28 @@ public class WorkShop : MonoBehaviour
 {
 
     public GameObject workShopCanvas;
+    public GameObject dropOffPos;
+    public GameObject outPutPos;
 
     public Recipe workrecipe;
     public Camera playerCam;
 
+    public bool hasResources;
+
     public float workAmount;
     public float workDone;
 
-    public float input1Amount;
-    public string input1Name;
+    public float stoneNeeded;
+    public float stoneStored;
 
-    public float input2Amount;
-    public string input2Name;
+    public float woodNeeded;
+    public float woodStored;
 
+    public float clayneeded;
+    public float clayStored;
 
-    public float input3Amount;
-    public string input3Name;
+    public float slabsNeeded;
+    public float slabsStored;
 
     public GameObject outPut;
 
@@ -44,11 +50,23 @@ public class WorkShop : MonoBehaviour
         workShopCanvas = GameObject.FindGameObjectWithTag("WorkShopCanvas").transform.GetChild(0).gameObject;
     }
 
+    private void CheckResources()
+    {
+        if (stoneNeeded <= stoneStored && woodNeeded <= woodStored && clayneeded <= clayStored && slabsNeeded <= slabsStored)
+        {
+            hasResources = true;
+        }
+        else
+        {
+            hasResources = false;
+        }
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-
+        CheckResources();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             RaycastHit hit;
@@ -62,10 +80,8 @@ public class WorkShop : MonoBehaviour
                 {
                     workShopCanvas.GetComponent<WorkShopUI>().workShopSelected = this.gameObject;
                     workShopCanvas.SetActive(true);
-
-
                 }
-          
+         
             }
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
@@ -83,38 +99,68 @@ public class WorkShop : MonoBehaviour
 
             workAmount = workrecipe.workNeeded;
 
-            input1Name = workrecipe.resource1;
-            input1Amount = workrecipe.resource1Ammount;
-            
-            input2Name = workrecipe.resource2;
-            input2Amount = workrecipe.resource2Ammount;
+            stoneNeeded = workrecipe.stoneNeeded;
+
+            woodNeeded = workrecipe.woodNeeded;
            
-            input3Name = workrecipe.resource3;
-            input3Amount = workrecipe.resource3Ammount;
+            clayneeded = workrecipe.clayNeeded;
         }
 
         if (dwarf1 != null)
         {
             dwarf1.GetComponent<Dwarf>().hasJob = true;
             dwarf1.GetComponent<Dwarf>().workPlace = workpos1.transform.position;
+            workpos1.GetComponent<WorkTransfer>().workingDwarf = dwarf1;
         }
         if (dwarf2 != null)
         {
             dwarf2.GetComponent<Dwarf>().hasJob = true;
             dwarf2.GetComponent<Dwarf>().workPlace = workpos2.transform.position;
+            workpos2.GetComponent<WorkTransfer>().workingDwarf = dwarf2;
         }
         if (dwarf3 != null)
         {
             dwarf3.GetComponent<Dwarf>().hasJob = true;
             dwarf3.GetComponent<Dwarf>().workPlace = workpos3.transform.position;
+            workpos3.GetComponent<WorkTransfer>().workingDwarf = dwarf3;
         }
         
     
     }
 
-    public void recieveWork()
-    {
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "ResourceChunk")
+        {
+
+                stoneStored += collision.gameObject.GetComponent<ResourceChunk>().stoneWorth;
+                woodStored += collision.gameObject.GetComponent<ResourceChunk>().woodWorth;
+                clayStored += collision.gameObject.GetComponent<ResourceChunk>().clayWorth;
+                slabsStored += collision.gameObject.GetComponent<ResourceChunk>().slabWorth;
+                Destroy(collision.gameObject);
+        }
+    }
+
+    public Vector3 DropOff()
+    {
+        return dropOffPos.transform.position;
+    }
+
+    public void recieveWork(float recievedWork)
+    {
+        print(recievedWork);
+        if (hasResources)
+        {
+            workDone += recievedWork;
+        }
+        if (workDone >= workAmount && hasResources && outPut != null)
+        {
+            GameObject temp = Instantiate(outPut);
+            temp.transform.position = outPutPos.transform.position;
+
+            workDone = 0;
+        }
     }
 
 

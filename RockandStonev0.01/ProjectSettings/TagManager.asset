@@ -15,6 +15,7 @@ TagManager:
   - Recipe
   - WorkShopCanvas
   - inInventory
+  - OverCloud
   layers:
   - Default
   - TransparentFX

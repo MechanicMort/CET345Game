@@ -56,8 +56,29 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
             }
 
         }
+        else if (job == "BlackSmith")
+        {
+            if (GetComponent<Dwarf>().hasJob)
+            {
+                navAgent.destination = GoToJob();
+            }
+        }
+        else if (job == "Miner")
+        {
+            if (GetComponent<Dwarf>().hasJob)
+            {
+                navAgent.destination = GoToJob();
+            }
+        }
     }
 
+
+    private Vector3 GoToJob()
+    {
+        Vector3 jobPos = new Vector3(0,0,0);
+        jobPos = GetComponent<Dwarf>().workPlace;
+        return jobPos;
+    }
 
     private Vector3 LookForSpaceToStore()
     {
@@ -78,7 +99,7 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
                 if (Vector3.Distance(storageLocations[i].transform.position, transform.position) < closeness)
                 {
                     closeness = Vector3.Distance(storageLocations[i].transform.position, transform.position);
-                    closestPos = storageLocations[i].transform.position;
+                    closestPos = storageLocations[i].GetComponent<Storage>().DropOff();
                 }
             }
            

@@ -134,7 +134,7 @@ public class WorkShopUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        progressBar.fillAmount = workShopSelected.GetComponent<WorkShop>().workDone/100;
+        progressBar.fillAmount =  workShopSelected.GetComponent<WorkShop>().workDone/ workShopSelected.GetComponent<WorkShop>().workAmount;
         //dwarves
         if (GameObject.Find(dwarf1Selection.GetComponentInChildren<Text>().text) != null)
         {

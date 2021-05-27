@@ -293,6 +293,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Farmer
       m_Image: {fileID: 0}
+    - m_Text: Miner
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

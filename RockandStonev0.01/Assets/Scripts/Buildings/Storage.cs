@@ -41,6 +41,11 @@ public class Storage : MonoBehaviour
 
     }
 
+    public Vector3 DropOff()
+    {
+        return DropOffPoint.transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {

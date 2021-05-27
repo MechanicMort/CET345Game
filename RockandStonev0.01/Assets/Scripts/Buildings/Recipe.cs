@@ -8,12 +8,10 @@ public class Recipe : MonoBehaviour
     public string recipeName;
 
     public float workNeeded;
-    public string resource1;
-    public float resource1Ammount;
-    public string resource2;
-    public float resource2Ammount;
-    public string resource3;
-    public float resource3Ammount;
+    public float stoneNeeded;
+    public float woodNeeded;
+    public float slabsNeeded;
+    public float clayNeeded;
     public GameObject outPut;
 
 }
