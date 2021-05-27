@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class WorkLedger : MonoBehaviour
 {
 
-    private GameObject[] subjectsDwarves;
+    private GameObject[] subjectsDwarves = new GameObject[0];
     public GameObject dwarfLedger;
     public GameObject ledgerView;
     public GameObject Ledger;
@@ -26,8 +26,6 @@ public class WorkLedger : MonoBehaviour
         subjectsDwarves = GameObject.FindGameObjectsWithTag("Dwarf");
 
         UpdateLedger();
-
-
         
     }
 
@@ -58,21 +56,25 @@ public class WorkLedger : MonoBehaviour
         {
             Destroy(ledgerView.gameObject.transform.GetChild(i).gameObject);
         }
-
-        for (int i = 0; i < subjectsDwarves.Length; i++)
+        if (subjectsDwarves.Length > 0)
         {
-            GameObject dwarfLedgerTemp;
+            for (int i = 0; i < subjectsDwarves.Length; i++)
+            {
+                GameObject dwarfLedgerTemp;
 
-            dwarfLedgerTemp = Instantiate(subjectsDwarves[i].GetComponent<Dwarf>().workLedger);
-            dwarfLedgerTemp.transform.SetParent(ledgerView.transform, true);
-            dwarfLedgerTemp.transform.GetChild(0).GetComponent<LedgerUpdate>().myDwarf = subjectsDwarves[i];
+                dwarfLedgerTemp = Instantiate(subjectsDwarves[i].GetComponent<Dwarf>().workLedger);
+                dwarfLedgerTemp.transform.SetParent(ledgerView.transform, true);
+                dwarfLedgerTemp.transform.GetChild(0).GetComponent<LedgerUpdate>().myDwarf = subjectsDwarves[i];
 
-            dwarfLedgerTemp.transform.GetChild(0).GetComponent<Dropdown>().SetValueWithoutNotify(jobDictionary[subjectsDwarves[i].GetComponent<Dwarf>().subjectJob]);
+                dwarfLedgerTemp.transform.GetChild(0).GetComponent<Dropdown>().SetValueWithoutNotify(jobDictionary[subjectsDwarves[i].GetComponent<Dwarf>().subjectJob]);
 
-            dwarfLedgerTemp.transform.GetChild(1).GetComponent<Text>().text = subjectsDwarves[i].GetComponent<Dwarf>().subjectName;
-            dwarfLedgerTemp.transform.GetChild(2).GetComponent<Text>().text = "Status:" + subjectsDwarves[i].GetComponent<Dwarf>().subjectStatus;
+                dwarfLedgerTemp.transform.GetChild(1).GetComponent<Text>().text = subjectsDwarves[i].GetComponent<Dwarf>().subjectName;
+                dwarfLedgerTemp.transform.GetChild(2).GetComponent<Text>().text = "Status:" + subjectsDwarves[i].GetComponent<Dwarf>().subjectStatus;
 
+
+            }
 
         }
+      
     }
 }

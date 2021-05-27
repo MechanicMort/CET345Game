@@ -42,6 +42,7 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
 
     private void AI()
     {
+        //add of for not hungry
         if (job == "Hauling")
         {
             //find item if space in inventory
