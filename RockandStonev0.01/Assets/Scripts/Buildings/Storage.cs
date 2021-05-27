@@ -14,6 +14,8 @@ public class Storage : MonoBehaviour
     public float woodStored;
     public float clayStored;
     public bool isStorageFull;
+
+    public GameObject DropOffPoint;
     void Start()
     {
         stoneStored += 10;
@@ -36,6 +38,7 @@ public class Storage : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+
     }
 
     // Update is called once per frame

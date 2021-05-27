@@ -53,7 +53,6 @@ public class WorkLedger : MonoBehaviour
 
     public void UpdateLedger()
     {
-        print("Updating");
 
         for (int i = 0; i < ledgerView.gameObject.transform.childCount; i++)
         {

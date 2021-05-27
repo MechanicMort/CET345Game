@@ -45,7 +45,7 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
         if (job == "Hauling")
         {
             //find item if space in inventory
-            if (GetComponent<Dwarf>().inventory[GetComponent<Dwarf>().inventory.Length] == null)
+            if (!GetComponent<Dwarf>().isInvFull)
             {
                 navAgent.destination = LookForClosestItemToHaul();
             }

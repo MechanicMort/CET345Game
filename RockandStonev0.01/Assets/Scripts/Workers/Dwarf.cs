@@ -24,6 +24,7 @@ public class Dwarf : MonoBehaviour
     public int invSize;
 
     public bool isFoodInInv;
+    public bool isInvFull;
 
 
     public int foodPos;
@@ -138,13 +139,31 @@ public class Dwarf : MonoBehaviour
 
     private void InventoryManager()
     {
+
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            if (inventory[i] == null)
+            {
+                isInvFull = false;
+                break;
+            }
+            else if (inventory[i] != null)
+            {
+                isInvFull = true;
+            }
+
+        }
+
         for (int i = 0; i < inventory.Length; i++)
         {
             if (inventory[i] != null)
             {
-                inventory[i].transform.position = storageLocation.transform.position;
+                inventory[i].transform.parent = storageLocation.transform;
             }
+            
         }
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -157,9 +176,28 @@ public class Dwarf : MonoBehaviour
 
                 if (inventory[i] == null)
                 {
-                    print("Very Nice");
                     inventory[i] = collision.gameObject;
                     collision.gameObject.tag = "inInventory";
+                    collision.transform.localPosition = new Vector3(0,0,0);
+                    break;
+                }
+            }
+
+        }
+
+        if(collision.transform.tag == "StorageBuilding")
+        {
+            print("f");
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                if (inventory[i] != null)
+                {
+
+                    inventory[i].transform.tag = "ResourceChunk";
+                    inventory[i].transform.parent = null;
+                    inventory[i].transform.position = collision.gameObject.GetComponent<Storage>().DropOffPoint.transform.position;
+                    inventory[i] = null;
+
                 }
             }
 
