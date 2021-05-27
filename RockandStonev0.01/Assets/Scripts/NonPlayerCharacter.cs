@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using WUG.BehaviorTreeVisualizer;
 
 public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
@@ -11,9 +12,95 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
 
     private string job;
 
+    private NavMeshAgent navAgent;
+
+    private GameObject[] findingChunks;
+    private GameObject[] storageLocations;
+
+
+    private void Start()
+    {
+        navAgent = GetComponent<NavMeshAgent>();
+        StartCoroutine(AIRunTime());
+    }
+
     private void Update()
     {
         job = GetComponent<Dwarf>().subjectJob;
+
+    }
+
+
+    private IEnumerator AIRunTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AI();
+        StartCoroutine(AIRunTime());
+
+    }
+
+
+    private void AI()
+    {
+        if (job == "Hauling")
+        {
+            //find item if space in inventory
+            if (GetComponent<Dwarf>().inventory[GetComponent<Dwarf>().inventory.Length] == null)
+            {
+                navAgent.destination = LookForClosestItemToHaul();
+            }
+            else
+            {
+                navAgent.destination = LookForSpaceToStore();
+            }
+
+        }
+    }
+
+
+    private Vector3 LookForSpaceToStore()
+    {
+        storageLocations = GameObject.FindGameObjectsWithTag("StorageBuilding");
+        for (int i = 0; i < storageLocations.Length; i++)
+        {
+            if (storageLocations[i].GetComponent<Storage>().isStorageFull == true)
+            {
+                storageLocations[i] = null;
+            }
+        }
+        float closeness = Mathf.Infinity;
+        Vector3 closestPos = new Vector3(0, 0, 0);
+        for (int i = 0; i < storageLocations.Length; i++)
+        {
+            if (storageLocations[i] != null)
+            {
+                if (Vector3.Distance(storageLocations[i].transform.position, transform.position) < closeness)
+                {
+                    closeness = Vector3.Distance(storageLocations[i].transform.position, transform.position);
+                    closestPos = storageLocations[i].transform.position;
+                }
+            }
+           
+        }
+
+        return closestPos;
+    }
+
+    private Vector3 LookForClosestItemToHaul()
+    {
+        findingChunks = GameObject.FindGameObjectsWithTag("ResourceChunk");
+        float closeness = Mathf.Infinity;
+        Vector3 closestPos = new Vector3(0,0,0);
+        for (int i = 0; i < findingChunks.Length; i++)
+        {
+            if (Vector3.Distance(findingChunks[i].transform.position , transform.position) < closeness)
+            {
+                closeness = Vector3.Distance(findingChunks[i].transform.position, transform.position);
+                closestPos = findingChunks[i].transform.position;
+            }
+        }
+
+        return closestPos;
     }
 
     private void GenerateBehaviorTree()

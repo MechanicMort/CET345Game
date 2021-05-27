@@ -491,16 +491,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1301a0f2f31ca6c42a44dc71057d7c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHunger: 0
+  maxHealth: 100
+  Health: 0
+  maxHunger: 100
   Hunger: 0
-  maxHappiness: 0
+  maxHappiness: 100
   Happiness: 0
+  productivity: 0
+  productivityMax: 100
   subjectName: Gimli
   subjectStatus: None
-  subjectJob: None
+  subjectJob: Hauling
+  hasJob: 0
   invSize: 2
-  workLedger: {fileID: 0}
-  storageLocation: {fileID: 0}
+  isFoodInInv: 0
+  foodPos: 0
+  workPlace: {x: 0, y: 0, z: 0}
+  workLedger: {fileID: 2308660284091355397, guid: 8f83f2d477484e840a298c6dd6ff1a84, type: 3}
+  storageLocation: {fileID: 8240443224080682604}
   inventory: []
 --- !u!1 &6202522617411740321
 GameObject:

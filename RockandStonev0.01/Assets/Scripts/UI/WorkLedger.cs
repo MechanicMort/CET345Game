@@ -9,6 +9,7 @@ public class WorkLedger : MonoBehaviour
     private GameObject[] subjectsDwarves;
     public GameObject dwarfLedger;
     public GameObject ledgerView;
+    public GameObject Ledger;
 
     public Dictionary<string, int> jobDictionary = new Dictionary<string, int>();
 
@@ -39,7 +40,14 @@ public class WorkLedger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ledgerView.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            ledgerView.SetActive(true);
+        }
     }
 
 

@@ -132,6 +132,37 @@ public class Dwarf : MonoBehaviour
     }
     public void Update()
     {
-        
+        InventoryManager();
+    }
+
+
+    private void InventoryManager()
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            if (inventory[i] != null)
+            {
+                inventory[i].transform.position = storageLocation.transform.position;
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "ResourceChunk")
+        {
+
+            for (int i = 0; i < inventory.Length; i++)
+            {
+
+                if (inventory[i] == null)
+                {
+                    print("Very Nice");
+                    inventory[i] = collision.gameObject;
+                    collision.gameObject.tag = "inInventory";
+                }
+            }
+
+        }
     }
 }
