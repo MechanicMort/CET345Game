@@ -75,10 +75,11 @@
     <Compile Include="Assets\Scripts\Behavoirs\Composites\Selector.cs" />
     <Compile Include="Assets\Scripts\Behavoirs\Decorators\Inverter.cs" />
     <Compile Include="Assets\Scripts\Behavoirs\Node.cs" />
+    <Compile Include="Assets\Scripts\UI\WorkShopUI.cs" />
     <Compile Include="Assets\Scripts\Buildings\WorkShop.cs" />
     <Compile Include="Assets\Scripts\Behavoirs\Decorator.cs" />
     <Compile Include="Assets\Scripts\Behavoirs\Condition.cs" />
-    <Compile Include="Assets\Scripts\UI\WorkShopUI.cs" />
+    <Compile Include="Assets\Scripts\Resources\ResourceNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -13,6 +13,7 @@ TagManager:
   - BuildingSite
   - WorkShop
   - Recipe
+  - WorkShopCanvas
   layers:
   - Default
   - TransparentFX
