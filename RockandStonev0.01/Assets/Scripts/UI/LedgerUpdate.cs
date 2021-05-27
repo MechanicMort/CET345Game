@@ -15,6 +15,10 @@ public class LedgerUpdate : MonoBehaviour
     public void UpdateLedger()
     {
         myDwarf.GetComponent<Dwarf>().subjectJob = transform.GetChild(0).GetComponent<Text>().text;
-        workLedger.GetComponent<WorkLedger>().UpdateLedger();
+        if (workLedger.gameObject.activeInHierarchy)
+        {
+            workLedger.GetComponent<WorkLedger>().UpdateLedger();
+        }
+
     }
 }

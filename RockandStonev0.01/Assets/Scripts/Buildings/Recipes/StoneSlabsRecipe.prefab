@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800fa9e6ba7a29548bec07b7904729f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipeName: StoneSlabs
   workNeeded: 25
-  resource1: Stone
-  resource1Ammount: 15
-  resource2: null
-  resource2Ammount: 0
-  resource3: null
-  resource3Ammount: 0
-  outPut: {fileID: 0}
+  stoneNeeded: 0
+  woodNeeded: 0
+  slabsNeeded: 0
+  clayNeeded: 0
+  wheatneeded: 0
+  outPut: {fileID: 6054058437929018419, guid: 00d464db704a2fe4c8ecd7b9917e2bc5, type: 3}

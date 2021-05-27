@@ -87,7 +87,7 @@ public class ResourceNodeUI : MonoBehaviour
 
         for (int i = 0; i < dwarves.Count; i++)
         {
-            if (dwarves[i].GetComponent<Dwarf>().hasJob == false && dwarves[i].GetComponent<Dwarf>().subjectJob == "Miner")
+            if (dwarves[i].GetComponent<Dwarf>().hasJob == false && dwarves[i].GetComponent<Dwarf>().subjectJob == "Gatherer")
             {
                 dwarvesNames.Add(dwarves[i].GetComponent<Dwarf>().subjectName);
             }

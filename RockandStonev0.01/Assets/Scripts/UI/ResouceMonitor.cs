@@ -16,11 +16,14 @@ public class ResouceMonitor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stoneDisplay.text = "Stone: " +  gameManager.totalStone;
+
+        stoneDisplay.text = "Population: " +  gameManager.population;
+        stoneDisplay.text += "/" +  gameManager.maxPopulation;
+        stoneDisplay.text += "  Stone: " +  gameManager.totalStone;
         stoneDisplay.text += "  Wood: " +  gameManager.totalWood;
         stoneDisplay.text += "  Clay: " +  gameManager.totalClay;
-        stoneDisplay.text += " Stone Slabs: " +  gameManager.totalSlabs;
-        stoneDisplay.text += " Wheat: " +  gameManager.totalSlabs;
-        stoneDisplay.text += " Food: " +  gameManager.totalFood;
+        stoneDisplay.text += "  Stone Slabs: " +  gameManager.totalSlabs;
+        stoneDisplay.text += "  Wheat: " +  gameManager.totalWheat;
+        stoneDisplay.text += "  Food: " +  gameManager.totalFood;
     }
 }

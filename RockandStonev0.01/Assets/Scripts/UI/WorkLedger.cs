@@ -21,8 +21,8 @@ public class WorkLedger : MonoBehaviour
     {
         jobDictionary.Add("Hauling",0);
         jobDictionary.Add("BlackSmith",1);
-        jobDictionary.Add("Farmer", 2);
-        jobDictionary.Add("Miner", 3);
+        jobDictionary.Add("Gatherer", 2);
+        jobDictionary.Add("Worshiper", 3);
         subjectsDwarves = GameObject.FindGameObjectsWithTag("Dwarf");
 
         UpdateLedger();

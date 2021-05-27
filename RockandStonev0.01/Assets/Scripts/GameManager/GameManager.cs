@@ -16,10 +16,20 @@ public class GameManager : MonoBehaviour
     public float totalWood;
     public float totalClay;
     public float totalSlabs;
+
+
+    public float population;
+    public float maxPopulation;
     // Start is called before the first frame update
     void Start()
     {
 
+        List<Recipe> tempList = new List<Recipe>();
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Recipe").Length; i++)
+        {
+            tempList.Add(GameObject.FindGameObjectsWithTag("Recipe")[i].GetComponent<Recipe>());
+        }
+        recipes = tempList.ToArray();
     }
 
 
@@ -48,6 +58,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        population = GameObject.FindGameObjectsWithTag("Dwarf").Length;
+        maxPopulation = GameObject.FindGameObjectsWithTag("Home").Length * 2;
         totalStone = 0;
         totalClay = 0;
         totalWood = 0;

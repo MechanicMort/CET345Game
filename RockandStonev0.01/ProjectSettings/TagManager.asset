@@ -17,6 +17,7 @@ TagManager:
   - inInventory
   - OverCloud
   - ResourceNodeCanvas
+  - Home
   layers:
   - Default
   - TransparentFX

@@ -291,9 +291,9 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: BlackSmith
       m_Image: {fileID: 0}
-    - m_Text: Farmer
+    - m_Text: Gatherer
       m_Image: {fileID: 0}
-    - m_Text: Miner
+    - m_Text: Worshiper
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
