@@ -13,6 +13,8 @@ public class Storage : MonoBehaviour
 
     public float woodStored;
     public float clayStored;
+    public float wheatStored;
+    public float foodStored;
     public bool isStorageFull;
 
     public GameObject DropOffPoint;
@@ -34,6 +36,9 @@ public class Storage : MonoBehaviour
                 clayStored += collision.gameObject.GetComponent<ResourceChunk>().clayWorth;
                 slabsStored += collision.gameObject.GetComponent<ResourceChunk>().slabWorth;
 
+                wheatStored += collision.gameObject.GetComponent<ResourceChunk>().wheatWorth;
+                foodStored += collision.gameObject.GetComponent<ResourceChunk>().foodWorth;
+
 
                 Destroy(collision.gameObject);
             }
@@ -49,7 +54,7 @@ public class Storage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentStored = stoneStored + woodStored + clayStored + slabsStored;
+        currentStored = stoneStored + woodStored + clayStored + slabsStored + foodStored + wheatStored;
         if (currentStored >= maxStorage)
         {
             isStorageFull = true;

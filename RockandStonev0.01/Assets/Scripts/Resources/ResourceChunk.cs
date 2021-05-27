@@ -9,10 +9,12 @@ public class ResourceChunk : MonoBehaviour
     public float slabWorth;
     public float woodWorth;
     public float clayWorth;
+    public float foodWorth;
+    public float wheatWorth;
 
 
     private void Update()
     {
-        totalWorth = stoneWorth + slabWorth + woodWorth + clayWorth;
+        totalWorth = stoneWorth + slabWorth + woodWorth + clayWorth + foodWorth + wheatWorth;
     }
 }

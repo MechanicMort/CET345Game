@@ -30,6 +30,12 @@ public class WorkShop : MonoBehaviour
     public float slabsNeeded;
     public float slabsStored;
 
+    public float wheatNeeded;
+    public float wheatStored;
+
+    public float foodNeeded;
+    public float foodStored;
+
     public GameObject outPut;
 
     public GameObject dwarf1;
@@ -138,6 +144,8 @@ public class WorkShop : MonoBehaviour
                 woodStored += collision.gameObject.GetComponent<ResourceChunk>().woodWorth;
                 clayStored += collision.gameObject.GetComponent<ResourceChunk>().clayWorth;
                 slabsStored += collision.gameObject.GetComponent<ResourceChunk>().slabWorth;
+                foodStored += collision.gameObject.GetComponent<ResourceChunk>().foodWorth;
+                wheatStored += collision.gameObject.GetComponent<ResourceChunk>().wheatWorth;
                 Destroy(collision.gameObject);
         }
     }

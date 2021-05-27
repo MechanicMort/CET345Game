@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public ArrayList deliveryList = new ArrayList();
 
     public float totalStone;
+    public float totalFood;
+    public float totalWheat;
     public float totalWood;
     public float totalClay;
     public float totalSlabs;
@@ -49,23 +51,19 @@ public class GameManager : MonoBehaviour
         totalStone = 0;
         totalClay = 0;
         totalWood = 0;
+        totalFood = 0;
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
         {
          
             totalStone += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().stoneStored;
-        }
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
-        {
             totalWood += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().woodStored;
-        }
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
-        {
             totalClay += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().clayStored;
-        }
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
-        {
             totalSlabs += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().slabsStored;
+            totalFood += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().foodStored ;
+            totalWheat += GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().wheatStored;
         }
+    
+
 
     }
 }

@@ -12,6 +12,7 @@ public class Recipe : MonoBehaviour
     public float woodNeeded;
     public float slabsNeeded;
     public float clayNeeded;
+    public float wheatneeded;
     public GameObject outPut;
 
 }

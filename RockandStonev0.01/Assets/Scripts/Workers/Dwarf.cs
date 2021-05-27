@@ -161,7 +161,7 @@ public class Dwarf : MonoBehaviour
         {
             if (inventory[i] != null)
             {
-                inventory[i].transform.parent = storageLocation.transform;
+                inventory[i].transform.localPosition = new Vector3(0, 0, 0);
             }
             
         }
@@ -190,7 +190,6 @@ public class Dwarf : MonoBehaviour
 
         if(collision.transform.tag == "StorageBuilding")
         {
-            print("f");
             for (int i = 0; i < inventory.Length; i++)
             {
                 if (inventory[i] != null)

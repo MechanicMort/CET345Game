@@ -20,5 +20,7 @@ public class ResouceMonitor : MonoBehaviour
         stoneDisplay.text += "  Wood: " +  gameManager.totalWood;
         stoneDisplay.text += "  Clay: " +  gameManager.totalClay;
         stoneDisplay.text += " Stone Slabs: " +  gameManager.totalSlabs;
+        stoneDisplay.text += " Wheat: " +  gameManager.totalSlabs;
+        stoneDisplay.text += " Food: " +  gameManager.totalFood;
     }
 }

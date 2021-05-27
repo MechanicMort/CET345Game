@@ -42,11 +42,11 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
 
     private void AI()
     {
-        //add of for not hungry
+        //add if for not hungry
         if (job == "Hauling")
         {
             //find item if space in inventory
-            if (!GetComponent<Dwarf>().isInvFull)
+            if (!GetComponent<Dwarf>().isInvFull && GameObject.FindGameObjectsWithTag("ResourceChunk").Length > 0)
             {
                 navAgent.destination = LookForClosestItemToHaul();
             }
@@ -54,9 +54,15 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
             {
                 navAgent.destination = LookForSpaceToStore();
             }
-
         }
         else if (job == "BlackSmith")
+        {
+            if (GetComponent<Dwarf>().hasJob)
+            {
+                navAgent.destination = GoToJob();
+            }
+        }
+        else if (job == "Miner")
         {
             if (GetComponent<Dwarf>().hasJob)
             {
