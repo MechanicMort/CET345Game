@@ -492,21 +492,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  Health: 0
+  Health: 100
   maxHunger: 100
-  Hunger: 0
+  Hunger: 100
   maxHappiness: 100
-  Happiness: 0
-  productivity: 0
+  Happiness: 100
+  productivity: 100
   productivityMax: 100
-  subjectName: Gimli
+  subjectName: Granville Tippin
   subjectStatus: None
   subjectJob: Hauling
   hasJob: 0
+  hasHome: 0
   invSize: 2
   isFoodInInv: 0
+  isInvFull: 0
   foodPos: 0
   workPlace: {x: 0, y: 0, z: 0}
+  homeLocation: {x: 0, y: 0, z: 0}
   workLedger: {fileID: 2308660284091355397, guid: 8f83f2d477484e840a298c6dd6ff1a84, type: 3}
   storageLocation: {fileID: 8240443224080682604}
   inventory: []

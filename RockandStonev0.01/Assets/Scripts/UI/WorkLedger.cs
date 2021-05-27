@@ -24,20 +24,14 @@ public class WorkLedger : MonoBehaviour
         jobDictionary.Add("Gatherer", 2);
         jobDictionary.Add("Worshiper", 3);
         subjectsDwarves = GameObject.FindGameObjectsWithTag("Dwarf");
-
         UpdateLedger();
-        
-    }
-
-
-    private void OnEnable()
-    {
-        UpdateLedger();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        subjectsDwarves = GameObject.FindGameObjectsWithTag("Dwarf");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ledgerView.SetActive(false);
@@ -45,19 +39,22 @@ public class WorkLedger : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.W))
         {
             ledgerView.SetActive(true);
+            UpdateLedger();
         }
     }
 
 
     public void UpdateLedger()
     {
-
+ 
         for (int i = 0; i < ledgerView.gameObject.transform.childCount; i++)
         {
             Destroy(ledgerView.gameObject.transform.GetChild(i).gameObject);
         }
+
         if (subjectsDwarves.Length > 0)
         {
+            print("yes");
             for (int i = 0; i < subjectsDwarves.Length; i++)
             {
                 GameObject dwarfLedgerTemp;
