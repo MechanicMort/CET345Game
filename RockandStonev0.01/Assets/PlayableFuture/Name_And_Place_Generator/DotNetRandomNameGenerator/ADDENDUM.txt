@@ -1,0 +1,1 @@
+/NameGenerator.cs is a new Unity class by Playable Future LLC 2017

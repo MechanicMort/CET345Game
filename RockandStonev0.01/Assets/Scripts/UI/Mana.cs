@@ -11,6 +11,7 @@ public class Mana : MonoBehaviour
 
     private void Update()
     {
-        this.GetComponent<Image>().fillAmount = maxMana / CurrentMana;
+        maxMana = GameObject.FindGameObjectsWithTag("Altar").Length * 100;
+        this.GetComponent<Image>().fillAmount =  CurrentMana/ maxMana;
     }
 }

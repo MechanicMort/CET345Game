@@ -19,6 +19,5 @@ public class LedgerUpdate : MonoBehaviour
         {
             workLedger.GetComponent<WorkLedger>().UpdateLedger();
         }
-
     }
 }

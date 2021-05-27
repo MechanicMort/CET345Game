@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Home : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float spaces;
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Dwarf").Length; i++)
+        {
+            if (spaces > 0)
+            {
+                if (GameObject.FindGameObjectsWithTag("Dwarf")[i].GetComponent<Dwarf>().hasHome == false)
+                {
+                    GameObject.FindGameObjectsWithTag("Dwarf")[i].GetComponent<Dwarf>().hasHome = true;
+                    GameObject.FindGameObjectsWithTag("Dwarf")[i].GetComponent<Dwarf>().homeLocation = transform.position;
+                    spaces -= 1;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 }

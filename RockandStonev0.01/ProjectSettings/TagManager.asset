@@ -18,6 +18,9 @@ TagManager:
   - OverCloud
   - ResourceNodeCanvas
   - Home
+  - Altar
+  - Mana
+  - WorshipUI
   layers:
   - Default
   - TransparentFX

@@ -5,19 +5,17 @@ using UnityEngine.UI;
 
 public class Altar : MonoBehaviour
 {
-    public GameObject resourceNodeCanvas;
+    public GameObject worshipCanvas;
     public Camera playerCam;
     public float workNeeded;
     public float workDone;
 
     public GameObject workPos1;
     public GameObject workPos2;
-    public GameObject workPos3;
 
 
     public GameObject dwarf1;
     public GameObject dwarf2;
-    public GameObject dwarf3;
 
     public Mana mana;
     public float manaAmount;
@@ -26,9 +24,9 @@ public class Altar : MonoBehaviour
 
     private void Start()
     {
-        mana = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Mana>();
+        mana = GameObject.FindGameObjectWithTag("Mana").GetComponent<Mana>();
         playerCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        resourceNodeCanvas = GameObject.FindGameObjectWithTag("ResourceNodeCanvas").transform.GetChild(0).gameObject;
+        worshipCanvas = GameObject.FindGameObjectWithTag("WorshipUI").transform.GetChild(0).gameObject;
     }
 
     private void Update()
@@ -44,8 +42,8 @@ public class Altar : MonoBehaviour
 
                 if (hit.transform.name == this.gameObject.transform.name)
                 {
-                    resourceNodeCanvas.GetComponent<ResourceNodeUI>().resourceNodeSelected = this.gameObject;
-                    resourceNodeCanvas.SetActive(true);
+                    worshipCanvas.GetComponent<WorshipUI>().altarSelected = this.gameObject;
+                    worshipCanvas.SetActive(true);
                 }
 
             }
@@ -53,7 +51,7 @@ public class Altar : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
 
-            resourceNodeCanvas.SetActive(false);
+            worshipCanvas.SetActive(false);
         }
 
         if (workDone >= workNeeded)
@@ -74,12 +72,6 @@ public class Altar : MonoBehaviour
             dwarf2.GetComponent<Dwarf>().hasJob = true;
             dwarf2.GetComponent<Dwarf>().workPlace = workPos2.transform.position;
             workPos2.GetComponent<WorkTransfer>().workingDwarf = dwarf2;
-        }
-        if (dwarf3 != null)
-        {
-            dwarf3.GetComponent<Dwarf>().hasJob = true;
-            dwarf3.GetComponent<Dwarf>().workPlace = workPos3.transform.position;
-            workPos3.GetComponent<WorkTransfer>().workingDwarf = dwarf3;
         }
     }
 

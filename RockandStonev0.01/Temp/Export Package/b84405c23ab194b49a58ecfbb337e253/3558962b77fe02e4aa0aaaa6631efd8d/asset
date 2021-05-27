@@ -1,0 +1,44 @@
+Quick Start:
+
+1. Attach the Name Generator component to a GameObject in your scene.
+2. If you want to change some text when the , drag a Text UI element to the "Text to Change"
+3. Watch the Name Generator component during playback to see the generated name (good place to copy).
+4. The name will also appear in the debug log.
+
+Advanced:
+
+To use the library directly from code, add the line below to your MonoBehavior.  
+
+----
+using RandomNameGeneratorLibrary;
+----
+
+Then create an instance of the generator.
+
+----
+PersonNameGenerator pGen = new RandomNameGeneratorLibrary.PersonNameGenerator();
+----
+
+And use its methods to create a name you can use wherever you like.
+
+----
+string name = pGen.GenerateRandomFirstAndLastName();
+----
+
+
+Adding or Changing Names:
+
+Name files are located in /Resources and are formatted as text files with one name per line.
+
+Change the lines below to match your files, if necessary.
+
+PersonNameGenerator.cs uses these files
+
+private const string MaleFile = "dist.male.first.stripped";
+private const string FemaleFile = "dist.female.first.stripped";
+private const string LastNameFile = "dist.all.last.stripped";
+
+PersonNameGenerator.cs uses these files
+private const string PlaceNameFile = "places2k.txt.stripped";
+
+See the README for more details on library use.

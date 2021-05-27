@@ -20,6 +20,7 @@ public class Dwarf : MonoBehaviour
     public string subjectJob;
 
     public bool hasJob;
+    public bool hasHome;
 
     public int invSize;
 
@@ -30,6 +31,7 @@ public class Dwarf : MonoBehaviour
     public int foodPos;
 
     public Vector3 workPlace;
+    public Vector3 homeLocation;
 
     public GameObject workLedger;
     public GameObject storageLocation;
@@ -38,8 +40,6 @@ public class Dwarf : MonoBehaviour
 
     private void Start()
     {
-
-
 
         this.gameObject.name = subjectName;
         inventory = new GameObject[invSize];

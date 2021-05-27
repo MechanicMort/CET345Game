@@ -42,43 +42,52 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
 
     private void AI()
     {
-        //add if for not hungry
-        if (job == "Hauling")
+        if (GetComponent<Dwarf>().Hunger > 30)
         {
-            //find item if space in inventory
-            if (!GetComponent<Dwarf>().isInvFull && GameObject.FindGameObjectsWithTag("ResourceChunk").Length > 0)
+
+
+            //add if for not hungry
+            if (job == "Hauling")
             {
-                navAgent.destination = LookForClosestItemToHaul();
+                //find item if space in inventory
+                if (!GetComponent<Dwarf>().isInvFull && GameObject.FindGameObjectsWithTag("ResourceChunk").Length > 0)
+                {
+                    navAgent.destination = LookForClosestItemToHaul();
+                }
+                else
+                {
+                    navAgent.destination = LookForSpaceToStore();
+                }
             }
-            else
+            else if (job == "BlackSmith" || job == "Worshiper" || job == "Gatherer")
             {
-                navAgent.destination = LookForSpaceToStore();
+                if (GetComponent<Dwarf>().hasJob)
+                {
+                    navAgent.destination = GoToJob();
+                }
+                else
+                {
+                    navAgent.destination = goHome();
+                }
             }
         }
-        else if (job == "BlackSmith")
-        {
-            if (GetComponent<Dwarf>().hasJob)
-            {
-                navAgent.destination = GoToJob();
-            }
-        }
-        else if (job == "Miner")
-        {
-            if (GetComponent<Dwarf>().hasJob)
-            {
-                navAgent.destination = GoToJob();
-            }
-        }
-        else if (job == "Miner")
-        {
-            if (GetComponent<Dwarf>().hasJob)
-            {
-                navAgent.destination = GoToJob();
-            }
-        }
+
     }
 
 
+    private Vector3 lookForFood()
+    {
+        Vector3 jobPos = new Vector3(0, 0, 0);
+        jobPos = GetComponent<Dwarf>().workPlace;
+        return jobPos;
+    }
+
+    private Vector3 goHome()
+    {
+        Vector3 home = new Vector3(0, 0, 0);
+        home = GetComponent<Dwarf>().homeLocation;
+        return home;
+    }
     private Vector3 GoToJob()
     {
         Vector3 jobPos = new Vector3(0,0,0);
