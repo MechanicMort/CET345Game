@@ -16,6 +16,7 @@ TagManager:
   - WorkShopCanvas
   - inInventory
   - OverCloud
+  - ResourceNodeCanvas
   layers:
   - Default
   - TransparentFX

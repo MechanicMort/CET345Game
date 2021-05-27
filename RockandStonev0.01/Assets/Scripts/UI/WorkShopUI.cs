@@ -45,6 +45,7 @@ public class WorkShopUI : MonoBehaviour
         if (workShopSelected.GetComponent<WorkShop>().dwarf1 != null)
         {
             none.Add(workShopSelected.GetComponent<WorkShop>().dwarf1.GetComponent<Dwarf>().subjectName);
+            none.Add("Remove Dwarf");
             dwarf1Selection.AddOptions(none);
             none.Clear();
         }
@@ -59,6 +60,7 @@ public class WorkShopUI : MonoBehaviour
         if (workShopSelected.GetComponent<WorkShop>().dwarf2 != null)
         {
             none.Add(workShopSelected.GetComponent<WorkShop>().dwarf2.GetComponent<Dwarf>().subjectName);
+            none.Add("Remove Dwarf");
             dwarf2Selection.AddOptions(none);
             none.Clear();
         }
@@ -72,6 +74,7 @@ public class WorkShopUI : MonoBehaviour
         if (workShopSelected.GetComponent<WorkShop>().dwarf3 != null)
         {
             none.Add(workShopSelected.GetComponent<WorkShop>().dwarf3.GetComponent<Dwarf>().subjectName);
+            none.Add("Remove Dwarf");
             dwarf3Selection.AddOptions(none);
             none.Clear();
         }
@@ -106,12 +109,17 @@ public class WorkShopUI : MonoBehaviour
             }
         }
         */
+        dwarves.Clear();
+        dwarvesNames.Clear();
         dwarves.AddRange(GameObject.FindGameObjectsWithTag("Dwarf"));
 
 
         for (int i = 0; i < dwarves.Count; i++)
         {
-            dwarvesNames.Add(dwarves[i].GetComponent<Dwarf>().subjectName);
+            if (dwarves[i].GetComponent<Dwarf>().hasJob == false && dwarves[i].GetComponent<Dwarf>().subjectJob == "BlackSmith")
+            {
+                dwarvesNames.Add(dwarves[i].GetComponent<Dwarf>().subjectName);
+            }
         }
 
 
@@ -143,6 +151,12 @@ public class WorkShopUI : MonoBehaviour
                 workShopSelected.GetComponent<WorkShop>().dwarf1 = GameObject.Find(dwarf1Selection.GetComponentInChildren<Text>().text);
             }
         }
+        else if (dwarf1Selection.GetComponentInChildren<Text>().text == "Remove Dwarf")
+        {
+            workShopSelected.GetComponent<WorkShop>().dwarf1.GetComponent<Dwarf>().hasJob = false;
+            workShopSelected.GetComponent<WorkShop>().dwarf1.GetComponent<Dwarf>().workPlace = new Vector3(0,0,0);
+            workShopSelected.GetComponent<WorkShop>().dwarf1 = null;
+        }
 
 
         if (GameObject.Find(dwarf2Selection.GetComponentInChildren<Text>().text) != null)
@@ -152,6 +166,12 @@ public class WorkShopUI : MonoBehaviour
                 workShopSelected.GetComponent<WorkShop>().dwarf2 = GameObject.Find(dwarf2Selection.GetComponentInChildren<Text>().text);
             }
         }
+        else if (dwarf2Selection.GetComponentInChildren<Text>().text == "Remove Dwarf")
+        {
+            workShopSelected.GetComponent<WorkShop>().dwarf2.GetComponent<Dwarf>().hasJob = false;
+            workShopSelected.GetComponent<WorkShop>().dwarf2.GetComponent<Dwarf>().workPlace = new Vector3(0, 0, 0);
+            workShopSelected.GetComponent<WorkShop>().dwarf2 = null;
+        }
 
         if (GameObject.Find(dwarf3Selection.GetComponentInChildren<Text>().text) != null)
         {
@@ -159,6 +179,12 @@ public class WorkShopUI : MonoBehaviour
             {
                 workShopSelected.GetComponent<WorkShop>().dwarf3 = GameObject.Find(dwarf3Selection.GetComponentInChildren<Text>().text);
             }
+        }
+        else if (dwarf3Selection.GetComponentInChildren<Text>().text == "Remove Dwarf")
+        {
+            workShopSelected.GetComponent<WorkShop>().dwarf3.GetComponent<Dwarf>().hasJob = false;
+            workShopSelected.GetComponent<WorkShop>().dwarf3.GetComponent<Dwarf>().workPlace = new Vector3(0, 0, 0);
+            workShopSelected.GetComponent<WorkShop>().dwarf3 = null;
         }
         //set recipe
         if (gameManager.getThisRecipe(recipeSelection.GetComponentInChildren<Text>().text))

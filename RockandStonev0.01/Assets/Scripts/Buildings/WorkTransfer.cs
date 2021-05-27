@@ -29,7 +29,6 @@ public class WorkTransfer : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (isDwarfHere)
         {
-
             attachedWorkStation.SendMessage("recieveWork", workingDwarf.gameObject.GetComponent<Dwarf>().Work());
         }
         StartCoroutine(Work());

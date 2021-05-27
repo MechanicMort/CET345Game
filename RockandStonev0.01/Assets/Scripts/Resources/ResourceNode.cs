@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ResourceNode : MonoBehaviour
 {
-
+    public GameObject resourceNodeCanvas;
+    public Camera playerCam;
     public float workNeeded;
     public float workDone;
 
@@ -21,8 +22,37 @@ public class ResourceNode : MonoBehaviour
     public GameObject outputPos;
 
 
+    private void Start()
+    {
+        playerCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        resourceNodeCanvas = GameObject.FindGameObjectWithTag("ResourceNodeCanvas").transform.GetChild(0).gameObject;
+    }
+
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            RaycastHit hit;
+
+            Ray ray = playerCam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+
+                if (hit.transform.name == this.gameObject.transform.name)
+                {
+                    resourceNodeCanvas.GetComponent<ResourceNodeUI>().resourceNodeSelected = this.gameObject;
+                    resourceNodeCanvas.SetActive(true);
+                }
+
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            resourceNodeCanvas.SetActive(false);
+        }
+
         if (workDone >= workNeeded)
         {
             GameObject temp = Instantiate(outPut);
@@ -52,7 +82,7 @@ public class ResourceNode : MonoBehaviour
         }
     }
 
-    public void RecieveWork(float workAdded)
+    public void recieveWork(float workAdded)
     {
         workDone += workAdded;
     }
