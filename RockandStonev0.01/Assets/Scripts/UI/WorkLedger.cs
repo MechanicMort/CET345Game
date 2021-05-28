@@ -54,7 +54,6 @@ public class WorkLedger : MonoBehaviour
 
         if (subjectsDwarves.Length > 0)
         {
-            print("yes");
             for (int i = 0; i < subjectsDwarves.Length; i++)
             {
                 GameObject dwarfLedgerTemp;

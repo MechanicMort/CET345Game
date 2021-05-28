@@ -155,6 +155,18 @@ public class WorkShop : MonoBehaviour
         return dropOffPos.transform.position;
     }
 
+    public float[] createOrder()
+    {
+        float[] order = new float[6];
+        order[0] = stoneNeeded - stoneStored;
+        order[1] = woodNeeded - woodStored;
+        order[2] = clayneeded - clayStored;
+        order[3] = slabsNeeded - slabsStored;
+        order[4] = wheatNeeded - wheatStored;
+        order[5] = foodNeeded - foodStored;
+        return order;
+    }
+
     public void recieveWork(float recievedWork)
     {
         print(recievedWork);

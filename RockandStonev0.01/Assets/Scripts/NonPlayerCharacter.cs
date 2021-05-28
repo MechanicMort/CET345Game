@@ -12,10 +12,18 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
 
     private string job;
 
+    private Vector3 deliveryPos;
+
     private NavMeshAgent navAgent;
 
     private GameObject[] findingChunks;
     private GameObject[] storageLocations;
+
+    public float[] currentOrder = new float[6];
+    public float orderTotal;
+
+
+    public bool hasDelivery = false;
 
 
     private void Start()
@@ -28,35 +36,111 @@ public class NonPlayerCharacter : MonoBehaviour, IBehaviorTree
     {
         job = GetComponent<Dwarf>().subjectJob;
 
+        orderTotal = 0;
+        for (int i = 0; i < currentOrder.Length; i++)
+        {
+            orderTotal += currentOrder[i];
+        }
+
+        if (orderTotal <= 0)
+        {
+            hasDelivery = false;
+        }
+
     }
 
 
     private IEnumerator AIRunTime()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         AI();
         StartCoroutine(AIRunTime());
 
     }
 
+    private bool BuildingSite()
+    {
+        return true;
+    }
+
+    private bool NeedDelivery()
+    {
+        if (hasDelivery == true)
+        {
+            return false;
+        }
+        else
+        {
+            print("Delivery Created");
+            for (int i = 0; i < GameObject.FindGameObjectsWithTag("WorkShop").Length; i++)
+            {
+                if (GameObject.FindGameObjectsWithTag("WorkShop")[i].GetComponent<WorkShop>().hasResources == false)
+                {
+                    currentOrder = GameObject.FindGameObjectsWithTag("WorkShop")[i].GetComponent<WorkShop>().createOrder();
+                    deliveryPos = GameObject.FindGameObjectsWithTag("WorkShop")[i].transform.position;
+                    return true;       
+                }
+            }
+            print("Returning false");
+            return false;
+        }    
+    }
+
+    private Vector3 FindMatsFromStorage()
+    {
+        print("GettingMats");
+        Vector3 storagePos = new Vector3(0,0,0);
+
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("StorageBuilding").Length; i++)
+        {
+            if (GameObject.FindGameObjectsWithTag("StorageBuilding")[i].GetComponent<Storage>().hasSupplies(currentOrder))
+            {
+                storagePos = GameObject.FindGameObjectsWithTag("StorageBuilding")[i].transform.position;
+                return storagePos;
+            }
+        }
+        return storagePos;
+    }
 
     private void AI()
     {
         if (GetComponent<Dwarf>().Hunger > 30)
         {
 
-
+            //&& GameObject.FindGameObjectsWithTag("ResourceChunk").Length > 0
             //add if for not hungry
             if (job == "Hauling")
             {
                 //find item if space in inventory
-                if (!GetComponent<Dwarf>().isInvFull && GameObject.FindGameObjectsWithTag("ResourceChunk").Length > 0)
+                if (!GetComponent<Dwarf>().isInvFull)
                 {
-                    navAgent.destination = LookForClosestItemToHaul();
+                    if (NeedDelivery())
+                    {
+                        navAgent.destination = FindMatsFromStorage();
+                    }
+                    else if (hasDelivery == true)
+                    {
+                        print("stuck here");
+                        navAgent.destination = deliveryPos;
+                    }
+                    else if (LookForClosestItemToHaul() != new Vector3(0,0,0))
+                    {
+                        print("stuck here insteasd");
+                        navAgent.destination = LookForClosestItemToHaul();
+                    }
+                    else
+                    {
+                        print("Heading Home");
+                        goHome();
+                    }
                 }
-                else
+                else if(hasDelivery == false)
                 {
                     navAgent.destination = LookForSpaceToStore();
+                }
+                else if(hasDelivery == true)
+                {
+                    navAgent.destination = deliveryPos;
                 }
             }
             else if (job == "BlackSmith" || job == "Worshiper" || job == "Gatherer")

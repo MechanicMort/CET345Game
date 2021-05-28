@@ -192,15 +192,34 @@ public class Dwarf : MonoBehaviour
             {
                 if (inventory[i] != null)
                 {
-
                     inventory[i].transform.tag = "ResourceChunk";
                     inventory[i].transform.parent = null;
                     inventory[i].transform.position = collision.gameObject.GetComponent<Storage>().DropOffPoint.transform.position;
                     inventory[i] = null;
-
                 }
             }
 
+        }
+
+        if (collision.transform.tag == "WorkShop" && GetComponent<NonPlayerCharacter>().hasDelivery == true)
+        {
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                if (inventory[i] != null)
+                {
+                    GetComponent<NonPlayerCharacter>().currentOrder[0] -= inventory[i].GetComponent<ResourceChunk>().stoneWorth;
+                    GetComponent<NonPlayerCharacter>().currentOrder[1] -= inventory[i].GetComponent<ResourceChunk>().woodWorth;
+                    GetComponent<NonPlayerCharacter>().currentOrder[2] -= inventory[i].GetComponent<ResourceChunk>().clayWorth;
+                    GetComponent<NonPlayerCharacter>().currentOrder[3] -= inventory[i].GetComponent<ResourceChunk>().slabWorth;
+                    GetComponent<NonPlayerCharacter>().currentOrder[4] -= inventory[i].GetComponent<ResourceChunk>().wheatWorth;
+                    GetComponent<NonPlayerCharacter>().currentOrder[5] -= inventory[i].GetComponent<ResourceChunk>().foodWorth;
+                    inventory[i].transform.tag = "ResourceChunk";
+                    inventory[i].transform.parent = null;
+                    inventory[i].transform.position = collision.gameObject.GetComponent<WorkShop>().dropOffPos.transform.position;
+                    inventory[i] = null;
+                    GetComponent<NonPlayerCharacter>().hasDelivery = false;
+                }
+            }
         }
     }
 }
